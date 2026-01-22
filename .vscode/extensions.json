@@ -1,0 +1,38 @@
+{
+  "recommendations": [
+    // Kod kalitesi
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "streetsidesoftware.code-spell-checker",
+
+    // Git & Versiyon kontrolü
+    "eamodio.gitlens",
+    "mhutchie.git-graph",
+
+    // Markdown & Döküman
+    "yzhang.markdown-all-in-one",
+    "bierner.markdown-preview-github-styles",
+    "davidanson.vscode-markdownlint",
+
+    // Python
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "charliermarsh.ruff",
+
+    // Shell scripting
+    "timonwong.shellcheck",
+    "foxundermoon.shell-format",
+
+    // Genel
+    "gruntfuggly.todo-tree",
+    "oderwat.indent-rainbow",
+    "mechatroner.rainbow-csv",
+    "redhat.vscode-yaml",
+
+    // AI asistanlar
+    "anthropic.claude",
+    "github.copilot"
+  ],
+  "unwantedRecommendations": []
+}

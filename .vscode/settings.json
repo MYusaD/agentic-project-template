@@ -1,0 +1,77 @@
+{
+    // Editör ayarları
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.wordWrap": "on",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        80,
+        120
+    ],
+    "editor.bracketPairColorization.enabled": true,
+    // Dosya ayarları
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.encoding": "utf8",
+    "files.eol": "\n",
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/__pycache__": true,
+        "**/*.pyc": true,
+        "**/vendor/**/.git": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    // Arama hariç tutmaları
+    "search.exclude": {
+        "**/vendor": true,
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/*.min.js": true,
+        "**/*.min.css": true
+    },
+    // Terminal ayarları
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.env.windows": {
+        "LANG": "en_US.UTF-8"
+    },
+    "terminal.integrated.env.linux": {
+        "LANG": "en_US.UTF-8"
+    },
+    "terminal.integrated.env.osx": {
+        "LANG": "en_US.UTF-8"
+    },
+    // Markdown ayarları
+    "markdown.preview.breaks": true,
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": {
+            "comments": "off",
+            "strings": "off",
+            "other": "off"
+        }
+    },
+    // Python ayarları
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.formatOnSave": true
+    },
+    // JSON ayarları
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Shell script ayarları
+    "[shellscript]": {
+        "editor.tabSize": 2
+    },
+    // Git ayarları
+    "git.ignoreLimitWarning": true,
+    "git.autofetch": true
+}

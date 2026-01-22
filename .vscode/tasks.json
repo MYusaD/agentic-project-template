@@ -1,0 +1,121 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Verify",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "scripts/verify.sh"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Stack-aware doğrulama: test, lint, type-check"
+        },
+        {
+            "label": "Loop",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "scripts/loop.sh"
+            ],
+            "options": {
+                "env": {
+                    "AGENT_CMD": "${input:agentCommand}",
+                    "MAX_ITERATIONS": "${input:maxIterations}"
+                }
+            },
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "dedicated",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Ajan döngüsünü başlat (Ralph loop)"
+        },
+        {
+            "label": "Fetch Resources",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "scripts/fetch_resources.sh"
+            ],
+            "group": "none",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Vendor repolarını indir (git clone)"
+        },
+        {
+            "label": "Ingest Knowledge",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "scripts/ingest_knowledge.sh"
+            ],
+            "group": "none",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": true
+            },
+            "problemMatcher": [],
+            "detail": "Vendor'dan bilgi tabanı oluştur"
+        },
+        {
+            "label": "Full Setup",
+            "dependsOn": [
+                "Fetch Resources",
+                "Ingest Knowledge"
+            ],
+            "dependsOrder": "sequence",
+            "group": "none",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Tüm kaynakları indir ve bilgi tabanını oluştur"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "agentCommand",
+            "type": "promptString",
+            "description": "Ajan komutu (örn: claude, aider)",
+            "default": "claude"
+        },
+        {
+            "id": "maxIterations",
+            "type": "promptString",
+            "description": "Maksimum iterasyon sayısı",
+            "default": "10"
+        }
+    ]
+}

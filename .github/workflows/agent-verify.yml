@@ -1,0 +1,43 @@
+name: Agent Verification
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # 1. Setup Environment (Universal)
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 2. Sync Verification
+      # Ensure that the AI configurations are in sync with the docs
+      - name: Verify AI Config Sync
+        run: |
+          python scripts/sync_agents.py
+          if [[ -n $(git status --porcelain) ]]; then
+            echo "❌ Error: AI configurations are out of sync with docs/rules/."
+            echo "Please run 'python scripts/sync_agents.py' and commit the changes."
+            exit 1
+          else
+            echo "✅ AI configurations are in sync."
+          fi
+
+      # 3. Project Verification
+      # Runs the standard verify.sh script which detects stack and tests
+      - name: Run Project Verification
+        run: bash scripts/verify.sh
